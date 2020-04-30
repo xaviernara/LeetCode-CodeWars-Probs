@@ -35,7 +35,7 @@ public class ExtendingExample{
    
       Count count = new Count();
       
-      //it is good practice to use 
+      //it is good practice to use a try/catch block when running threads
       try{
       
          //while loop will loop as long as the thread is is alive
