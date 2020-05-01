@@ -1,6 +1,7 @@
 import java.util.*;
 
-class Count extends Thread{
+class Count implements Runnable
+{
 
    /*
       Difference between implemmenting Runnable vs extending Thread
@@ -19,22 +20,27 @@ class Count extends Thread{
       
    */
 
-   public Count(){
-      super("my extebnding thread");
-      System.out.println("my thread created" + this);
-      start(); //starts the thread
-      
-   }
-   
-   //overridding the run method from the Thread class
-   public void run(){
-   
-   
-      try{
-         for(int i = 0; i<10; i++){
-            System.out.println("count " +i);
 
-            /*
+
+
+  Thread mythread ;
+  public Count(){ 
+      mythread = new Thread(this, "my runnable thread");
+      System.out.println("my thread created" + mythread);
+      mythread.start();
+   }
+   public void run()
+   {
+      try
+      {
+        for (int i=0 ;i<10;i++)
+        {
+          System.out.println("Printing the count " + i);
+          
+          //delays the thread
+          //sleep() is a method which is used to pause the process for few seconds or the time we want to.
+          
+          /*
             Thread.sleep() sends the current thread into the “Not Runnable” state for some amount of time. 
             The thread keeps the monitors it has acquired — i.e. if the thread is currently in a synchronized block or 
             method no other thread can enter this block or method. 
@@ -44,44 +50,35 @@ class Count extends Thread{
             A common mistake is to call t.sleep() where t is a different thread; even then, it is the current thread that will sleep, not the t thread.
           
           */
-
-            Thread.sleep(1000);
-         }
-         
-      
-      }catch(InterruptedException e){
+ 
+          Thread.sleep(1000);
+        }
+     }
+     catch(InterruptedException e)
+     {
         System.out.println("my thread interrupted");
-      }
-      
-      System.out.println("my thread run is over");   
+     }
+     System.out.println("mythread run is over" );
    }
-   
 }
 
+public class RunnableCountExample{
 
-public class ExtendingCountExample{
-   public static void main(String[] args){
-   
-      Count count = new Count();
-      
-      //it is good practice to use a try/catch block when running threads
-      try{
-      
-         //while loop will loop as long as the thread is is alive
-         while(count.isAlive()){
-           System.out.println("Main thread will be alive till the child thread is live");
-           Thread.sleep(1500);
-         }   
-      
-      
-      }catch(InterruptedException e){
-        System.out.println("main thread interrupted");
-      }
-      
-      System.out.println("main thread run is over");   
-
-   }
-
-
-
+    public static void main(String args[])
+    {
+       Count cnt = new Count();
+       try
+       {
+          while(cnt.mythread.isAlive())
+          {
+            System.out.println("Main thread will be alive till the child thread is live"); 
+            Thread.sleep(1500);
+          }
+       }
+       catch(InterruptedException e)
+       {
+          System.out.println("Main thread interrupted");
+       }
+       System.out.println("Main thread run is over" );
+    }
 }
