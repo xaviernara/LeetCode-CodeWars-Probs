@@ -30,7 +30,7 @@ class Count extends Thread{
 }
 
 
-public class ExtendingExample{
+public class ExtendingCountExample{
    public static void main(String[] args){
    
       Count count = new Count();
