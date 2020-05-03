@@ -22,6 +22,12 @@ class Count extends Thread{
    public Count(){
       super("my extebnding thread");
       System.out.println("my thread created" + this);
+      
+      /*
+         start() is used to start the execution of the code written in run(). 
+         If you will omit start() the code inside run() will not be executed.
+         
+      */
       start(); //starts the thread
       
    }
@@ -59,6 +65,23 @@ class Count extends Thread{
 }
 
 
+/*
+
+
+   getName(): It is used for Obtaining a thread’s name
+   getPriority(): Obtain a thread’s priority
+   isAlive(): Determine if a thread is still running
+   join(): Wait for a thread to terminate
+   run(): Entry point for the thread
+   sleep(): suspend a thread for a period of time
+   start(): start a thread by calling its run() method
+
+*/
+
+
+
+
+
 public class ExtendingCountExample{
    public static void main(String[] args){
    
@@ -68,6 +91,7 @@ public class ExtendingCountExample{
       try{
       
          //while loop will loop as long as the thread is is alive
+         //To know whether the thread has finished we can call isAlive() on the thread which returns true if the thread is not finished.
          while(count.isAlive()){
            System.out.println("Main thread will be alive till the child thread is live");
            Thread.sleep(1500);
