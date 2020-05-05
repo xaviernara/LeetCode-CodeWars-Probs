@@ -1,4 +1,4 @@
-
+import java.util.*;
 //Definition for a binary tree node.
 class TreeNode {
     int val;
@@ -22,7 +22,7 @@ public class DFSPreorderTraversal {
         tree.root = new TreeNode(1); 
         tree.root.left = null;
         tree.root.right = new TreeNode(2); 
-        tree.root.left = new TreeNode(3); 
+        tree.root.right.left = new TreeNode(3); 
         //tree.root.left.left = new Node(4); 
         //tree.root.left.right = new Node(5); 
    

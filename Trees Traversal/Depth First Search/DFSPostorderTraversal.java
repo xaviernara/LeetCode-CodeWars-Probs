@@ -22,7 +22,7 @@ public class DFSPostorderTraversal {
         tree.root = new TreeNode(1); 
         tree.root.left = null;
         tree.root.right = new TreeNode(2); 
-        tree.root.left = new TreeNode(3); 
+        tree.root.right.left = new TreeNode(3); 
         //tree.root.left.left = new Node(4); 
         //tree.root.left.right = new Node(5); 
    
@@ -32,7 +32,8 @@ public class DFSPostorderTraversal {
    }
 
 
-    //Pre-order traversal is to visit the root first. Then traverse the left subtree. Finally, traverse the right subtree.
+    //Post-order traversal is to traverse the left subtree first. Then traverse the right subtree. Finally, visit the root.    
+    
     public static List<Integer> postorderTraversal(TreeNode root) {
         
         if(root == null) return new ArrayList();

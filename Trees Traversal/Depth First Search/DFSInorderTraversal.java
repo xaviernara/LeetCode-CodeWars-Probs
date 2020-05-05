@@ -1,4 +1,8 @@
+import java.util.*;
+
 //Definition for a binary tree node.
+
+
 class TreeNode {
     int val;
     TreeNode left;
@@ -17,16 +21,16 @@ public class DFSInorderTraversal {
    public static void main(String[] args){
    
         //Input: [1,null,2,3]
-        TreeNode tree = new TreeNode(); 
-        tree.root = new TreeNode(1); 
-        tree.root.left = null;
-        tree.root.right = new TreeNode(2); 
-        tree.root.left = new TreeNode(3); 
+        TreeNode tree = new TreeNode(1); 
+        //tree = new TreeNode(1); 
+        //tree.left = null;
+        tree.left.right.val = 2; 
+        tree.right.right.left.val = 3; 
  
         //tree.root.left.left = new Node(4); 
         //tree.root.left.right = new Node(5); 
    
-        System.out.println(preorderTraversal(tree)); //[1,3,2]
+        System.out.println(inorderTraversal2(tree)); //[1,3,2]
    
    
    }
@@ -44,17 +48,31 @@ public class DFSInorderTraversal {
         list.add(current.val);
         
         while(current != null){
+        
+            /* Reach the left most Node of the 
+            curr Node */
+            while(current != null){
             
-            if(current.left != null){
-                list.add(current.val);
-                current = current.left;
-                
+               if(current.left != null){
+                   list.add(current.val);
+                   current = current.left;
+                   
+               }
+               /*
+               if(current.right != null){
+                   list.add(current.val);
+                   current = current.right;
+                   
+               }
+               */
+            
             }
-            if(current.right != null){
-                list.add(current.val);
-                current = current.right;
-                
-            }
+            
+            System.out.println(current.val+ " ");
+            
+            list.add(current.val);
+            current = current.right;
+
             
             
             /*
@@ -65,14 +83,47 @@ public class DFSInorderTraversal {
                     
                 }
                 
-                
+             */  
             }
-            */
+          
+            
+            return list;
+ 
             
         }
         
-        return list;
         
+        
+   public static List < Integer > inorderTraversal2(TreeNode root) {
+        List < Integer > res = new ArrayList < > ();
+        Stack < TreeNode > stack = new Stack < > ();
+        TreeNode curr = root;
+        while (curr != null || !stack.isEmpty()) {
+            while (curr != null) {
+                stack.push(curr);
+                curr = curr.left;
+            }
+            curr = stack.pop();
+            res.add(curr.val);
+            curr = curr.right;
+        }
+        return res;
+    }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+   
+   }     
+               
         
         
         
