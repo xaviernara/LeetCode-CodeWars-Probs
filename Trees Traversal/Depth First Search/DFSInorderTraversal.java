@@ -24,8 +24,8 @@ public class DFSInorderTraversal {
         TreeNode tree = new TreeNode(1); 
         //tree = new TreeNode(1); 
         //tree.left = null;
-        tree.left.right.val = 2; 
-        tree.right.right.left.val = 3; 
+        tree.left.right = new TreeNode(2); 
+        tree.right.right.left = new TreeNode(3); 
  
         //tree.root.left.left = new Node(4); 
         //tree.root.left.right = new Node(5); 
