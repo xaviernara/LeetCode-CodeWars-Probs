@@ -26,7 +26,7 @@ public class DFSPreorderTraversal {
         //tree.root.left.left = new Node(4); 
         //tree.root.left.right = new Node(5); 
    
-        System.out.println(preorderTraversal(tree)); //[1,2,3]
+        System.out.println(preorderTraversalStack(tree)); //[1,2,3]
    
    
    }
@@ -77,4 +77,34 @@ public class DFSPreorderTraversal {
         
         
     }
+    
+    public static List<Integer> preorderTraversalStack(TreeNode root) {
+    
+     List<Integer> list = new ArrayList<>();
+        
+        if (root == null) {
+            return list;
+        }
+        
+        Stack<TreeNode> nodeStoreStack = new Stack<>();
+        nodeStoreStack.push(root);
+
+        while (!nodeStoreStack.isEmpty()) {
+            TreeNode current = nodeStoreStack.pop();
+            list.add(current.val);
+
+            if (current.right != null) {
+                nodeStoreStack.push(current.right);
+            }
+            if (current.left != null) {
+                nodeStoreStack.push(current.left);
+            }
+        }
+        return list;
+    
+    
+    }
+    
+    
+    
 }
