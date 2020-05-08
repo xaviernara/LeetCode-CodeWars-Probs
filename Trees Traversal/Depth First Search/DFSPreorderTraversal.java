@@ -78,6 +78,19 @@ public class DFSPreorderTraversal {
         
     }
     
+    /*
+    
+          /**
+     * The goal is to maintain a stack of nodes to visit as we traverse 
+     * down through the tree. The stack should always have the left nodes
+     * on top so they can be processed first.
+     *           1
+     *         /   \
+     *        2     3    preorder traversal: 1 -> 2 -> 4 -> 5 -> 3 -> 6
+     *       / \   /     (root -> left -> right)
+     *      4   5 6
+    */
+    
     public static List<Integer> preorderTraversalStack(TreeNode root) {
     
      List<Integer> list = new ArrayList<>();
