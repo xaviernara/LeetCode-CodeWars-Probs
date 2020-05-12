@@ -5,8 +5,11 @@ public class FindJudge{
     public static void main(String[] args){
     
     
-    
-    
+      System.out.println(findJudge(2, [[1,2]]));
+      System.out.println(findJudge(3, [[1,3],[2,3]]));
+      System.out.println(findJudge(3, [[1,3],[2,3],[3,1]]));
+      System.out.println(findJudge(3, [[1,3],[2,3]]));
+      System.out.println(findJudge(4, [[1,3],[1,4],[2,3],[2,4],[4,3]]));
     }
       /*
          In a town, there are N people labelled from 1 to N.  There is a rumor that one of these people is secretly the town judge.
