@@ -1,7 +1,20 @@
 import java.util.*;
 
 public class FirstUniqueChar {
-    public int firstUniqChar(String s) {
+
+
+    public static void main(String[] args){
+      
+      System.out.println(firstUniqChar("leetcode"));
+      System.out.println(firstUniqChar("loveleetcode"));
+      System.out.println(firstUniqChar("ccc"));
+      System.out.println(firstUniqChar(""));
+      System.out.println(firstUniqChar("l"));
+    
+    }
+
+
+    public static int firstUniqChar(String s) {
         
         if(s.equals("") || s == null ){
             return -1;
