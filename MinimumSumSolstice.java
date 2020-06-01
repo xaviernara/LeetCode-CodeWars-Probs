@@ -33,8 +33,10 @@ public class MinimumSumSolstice{
    int arrayLength = 0;
 
    
+   //iterate solution 1
    public static int minimumSum(int[] nums,int k){
    
+      //step 1: iterate array 
       //step 1: find minimum number
       //step 2: preform "pick" operations
       //step 3: update indexOfMax 
@@ -125,6 +127,13 @@ public class MinimumSumSolstice{
       return result;
    }
    
+      //recursive solution
+      //step 1: find minimum number
+      //step 2: preform "pick" operations
+      //step 3: update indexOfMax 
+      //step 4: update indexOfMin
+      //step 5: change number at indexOfMin to number after pick operations
+      //step 6: recursivily iterate the array and decrement k
 
 
 
