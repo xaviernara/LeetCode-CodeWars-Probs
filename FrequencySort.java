@@ -2,6 +2,16 @@ import java.util.*;
 
 public class FrequencySort {
 
+   public static void main(String[] args){
+   
+      System.out.println(frequencySort("tree"));
+      System.out.println(frequencySort("cccaaa"));
+      System.out.println(frequencySort("Aabb"));      
+
+
+   
+   }
+
 
    /*
    
@@ -49,19 +59,47 @@ public class FrequencySort {
     
       Map<Character,Integer> map = new LinkedHashMap<>();
       
+      /*
+           LinkedHashMap<Integer, String> sortedMap = 
+                   map.entrySet().stream().
+                   sorted(Entry.comparingByValue()).
+                   collect(Collectors.toMap(Entry::getKey, Entry::getValue,
+                                            (e1, e2) -> e1, LinkedHashMap::new));
+     */ 
+      
       for(int i = 0; i<s.length();i++){
+         if(!map.containsKey(s.charAt(i))){
+            map.put(s.charAt(i),1);
+         }
+         else{
+            map.put(s.charAt(i),map.get(s.charAt(i)+1));
+         }
       
       }
+      
+      String result = ""; 
+      for(Map.Entry<Character,Integer> entry: map.entrySet()){
+      
+         result += repeatString(entry.getKey(), entry.getValue());
+         System.out.println(result);
+      
+      }
+      
+      //StringBuilder sb = new StringBuilder();
+      //sb.append(result);
+      
+      return result;
+      
     
     
         
     }
     
-    private static String repeatString(String s,int count){
-    StringBuilder r = new StringBuilder();
+    private static String repeatString(Character ch,int count){
+    StringBuilder sb = new StringBuilder();
     for (int i = 0; i < count; i++) {
-        r.append(s);
+        sb.append(ch);
     }
-    return r.toString();
+    return sb.toString();
 }
 }

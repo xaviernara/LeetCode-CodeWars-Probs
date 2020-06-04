@@ -115,10 +115,11 @@ public class CheckDigitAndCheckCode{
       
       sum = (sum+207)/103;
       
-      String checkCode = 
+      String checkCode = Integer.toString(sum);
       
       
-      return ;
+      
+      return sum%10 =0 ? Integer.toString(sum)+ ;
    
    
    }
