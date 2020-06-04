@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.*;
 
 public class FrequencySort {
 
@@ -57,25 +58,29 @@ public class FrequencySort {
 
     public static String frequencySort(String s) {
     
-      Map<Character,Integer> map = new LinkedHashMap<>();
+      Map<Character,Integer> map = new TreeMap<>(new SortByValueComparator());
       
       /*
            LinkedHashMap<Integer, String> sortedMap = 
-                   map.entrySet().stream().
+                   sortedMap.entrySet().stream().
                    sorted(Entry.comparingByValue()).
                    collect(Collectors.toMap(Entry::getKey, Entry::getValue,
                                             (e1, e2) -> e1, LinkedHashMap::new));
-     */ 
-      
+     
+      */
       for(int i = 0; i<s.length();i++){
-         if(!map.containsKey(s.charAt(i))){
-            map.put(s.charAt(i),1);
+         if(map.containsKey(s.charAt(i))){
+            map.put( s.charAt(i), map.get(s.charAt(i))+1 );
+            //map.put(s.charAt(i),1);
          }
          else{
-            map.put(s.charAt(i),map.get(s.charAt(i)+1));
+            //map.put( s.charAt(i), map.get(s.charAt(i)+1));
+            map.put(s.charAt(i),1);
          }
       
       }
+      
+      
       
       String result = ""; 
       for(Map.Entry<Character,Integer> entry: map.entrySet()){
@@ -95,11 +100,33 @@ public class FrequencySort {
         
     }
     
-    private static String repeatString(Character ch,int count){
-    StringBuilder sb = new StringBuilder();
-    for (int i = 0; i < count; i++) {
-        sb.append(ch);
-    }
-    return sb.toString();
+       private static String repeatString(Character ch,int count){
+       StringBuilder sb = new StringBuilder();
+       for (int i = 0; i < count; i++) {
+           sb.append(ch);
+       }
+       return sb.toString();
+   }
 }
+
+
+class SortByValueComparator implements Comparator<Map.Entry<Character,Integer>> {
+
+   public int compare(Map.Entry<Character,Integer> e1, Map.Entry<Character,Integer> e2){
+   
+      if(e1.getValue() > e2.getValue()){
+         return 1;
+      }
+      else if(e1.getValue() == e2.getValue()){
+         return 0;
+      }         
+      
+      return -1;
+      
+      
+   
+   }
+
+
+
 }
