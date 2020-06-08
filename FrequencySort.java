@@ -58,7 +58,13 @@ public class FrequencySort {
 
     public static String frequencySort(String s) {
     
-      Map<Character,Integer> map = new TreeMap<>(new SortByValueComparator());
+      //SortByValueComparator sbvc = new SortByValueComparator();
+          
+      //SortedMap<Character,Integer> map = new TreeMap<>(sbvc);
+      Map<Character,Integer> map = new TreeMap<>();
+      
+      Comparator<Character> comparator = new ValueComparator<Character, Integer>(map);
+
       
       /*
            LinkedHashMap<Integer, String> sortedMap = 
@@ -129,4 +135,23 @@ class SortByValueComparator implements Comparator<Map.Entry<Character,Integer>> 
 
 
 
+}
+
+
+//https://www.programcreek.com/2013/03/java-sort-map-by-value/
+// a comparator using generic type
+class ValueComparator<Key, Value extends Comparable<Value>> implements Comparator<Key>{
+ 
+	Map<Key, Value> map = new HashMap<Key, Value>();
+ 
+	public ValueComparator(Map<Key, Value> map){
+		this.map.putAll(map);
+	}
+ 
+	@Override
+	public int compare(Key s1, Key s2) {
+		return -map.get(s1).compareTo(map.get(s2));//descending order
+      //return map.get(s1).compareTo(map.get(s2));//descending order
+	
+	}
 }
