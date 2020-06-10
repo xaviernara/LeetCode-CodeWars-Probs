@@ -14,6 +14,7 @@ public class BinarySearchExample{
    }
    
    
+   //Data structre most be sorted before using this algo
    public static int binarySearch ( int num, int[] array){
    
       int low = 0;
