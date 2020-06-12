@@ -11,8 +11,8 @@ public class StarsAndBars{
       int[] ex2 = {1,1};
       int[] ex2_1 = {1,3};
       
-      int[] ex2 = {1,1};
-      int[] ex2_1 = {1,6};
+      int[] ex3 = {1,1};
+      int[] ex3_1 = {1,6};
 
    
       System.out.println(StarsAndBars("|**|*|*",ex1, ex1_1));
@@ -31,8 +31,18 @@ public class StarsAndBars{
       
 
       //starting indexes star and bars search loop
-      for(int i = String.valueOf(startRange.charAt(0)); i<String.valueOf(endRange.charAt(0)); i++ ){
+      //for(int i = Character.getNumericValue(startRange.charAt(0)); i<Character.getNumericValue(startRange.charAt(0)); i++ ){
       
+      
+      //int i = Character.getNumericValue(startRange.charAt(0)) - 1;
+      //for(i ; i<Character.getNumericValue(startRange.charAt(0)) ; i++ ){
+
+
+      String s1 = s.substring(Character.getNumericValue(startRange.charAt(0)), Character.getNumericValue(endRange.charAt(0)) );
+
+    //while(i <= Character.getNumericValue(startRange.charAt(1))-1){
+    
+    for(int i = 0; i<s1.length();i++){
          //'|' = ascii decimal 124
          if((int)s.charAt(i) == 124 ){
             if(barCount!=2){
@@ -42,23 +52,34 @@ public class StarsAndBars{
          } 
          
          //'*' = ascii decimal 42
-         else{
-            starCount++
+         else if ((int)s.charAt(i) == 42 && barCount!=2){
+            starCount++;
          }
+         
+         //i++;
 
     }
     
     
-    int[] result = new int[2]();
+    int[] result = new int[2];
     
     result[0] = starCount;
     
     starCount = 0;
+    barCount = 0;
     
     //ending indexes star and bars search loop
-    for(int i = String.valueOf(startRange.charAt(1)); i<String.valueOf(endRange.charAt(1)); i++ ){
-      
-         //'|' = ascii decimal 124
+    //for(int i = Character.getNumericValue(endRange.charAt(1)); i< Character.getNumericValue(endRange.charAt(1)); i++ ){
+    
+    
+    //int j = Character.getNumericValue(endRange.charAt(0)) - 1;
+    
+    String s2 = s.substring(Character.getNumericValue(startRange.charAt(1)), Character.getNumericValue(endRange.charAt(1)) );
+     
+    //while(j <= Character.getNumericValue(endRange.charAt(1))-1){
+      for(int i = 0; i<s2.length();i++){
+
+         // '|' = ascii decimal 124
          if((int)s.charAt(i) == 124 ){
             if(barCount!=2){
                barCount++;
@@ -66,10 +87,12 @@ public class StarsAndBars{
             
          } 
          
-         //'*' = ascii decimal 42
-         else{
-            starCount++
+         // '*' = ascii decimal 42
+         else if ((int)s.charAt(i) == 42 && barCount!=2){
+            starCount++;
          }
+         
+         //j++;
          
       }
 
