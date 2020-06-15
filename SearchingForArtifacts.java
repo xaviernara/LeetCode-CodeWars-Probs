@@ -2,7 +2,7 @@ import java.util.*;
 
 class SearchingForArtifacts {
 
-   public static void main(){
+   public static void main(String[] args){
       System.out.println(searchingForArtifacts(3,"1B 2C 2D 4D", "2B 2D 3D 4D 4A"));
    
    }
@@ -16,21 +16,23 @@ class SearchingForArtifacts {
         int col1 = 0;
         int count =0;
 
-        array = populateArray(array);
+        //method not needed becuz the 2d array is already populated with zeros
+        //array = populateArray(array);
 
 
         //int[][] searchedArray = new int[N][N];
 
         //populating array[][] with artifacts spots
         for(int i = 0; i<artifacts.length(); i++){
+          char ch = artifacts.charAt(i);
           if(count != 2){
-             if(Character.isLetter(artifacts.charAt(i))){
-                 col1 = convertLetterToNumber(artifacts.charAt(i));
+             if(Character.isLetter(ch)){
+                 col1 = convertLetterToNumber(ch);
             }else{
-                 row1 = Character.getNumericValue(artifacts.charAt(i));
+                 row1 = Character.getNumericValue(ch);
             }// you can also use imports, for example:
          }else{
-            array[row1 -1][col1 -1] = 1;
+            array[row1][col1] = 1;
             count = 0;
          } 
 
@@ -80,7 +82,7 @@ class SearchingForArtifacts {
  
     }
 
-    public int convertLetterToNumber(char letter){
+    public static int convertLetterToNumber(char letter){
 
       int result = 0;
 
