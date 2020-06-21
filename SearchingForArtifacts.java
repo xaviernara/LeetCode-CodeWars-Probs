@@ -2,6 +2,9 @@ import java.util.*;
 
 class SearchingForArtifacts {
 
+
+   //refer to IMC ocding challenge pics for question
+
    public static void main(String[] args){
       System.out.println(searchingForArtifacts(3,"1B 2C 2D 4D", "2B 2D 3D 4D 4A"));
    
@@ -82,16 +85,21 @@ class SearchingForArtifacts {
  
     }
 
+   //FINDS letter's position in alphabet
     public static int convertLetterToNumber(char letter){
 
-      int result = 0;
-
-      result*= 26;
+      int result = 0;      
+      //'A' = 65 in ascii table, 'B' = 66 etc...
+      //to get letter position in alphabet we can subtract the given letter from 'A' and + 1
+      //ex: ('B' - 'A')+1 = (66-65) +1 =2 
       result += letter - 'A'+1;
       return result;
 
     }
 
+
+   //method not needed becuz the 2d array is already populated with zeros
+   /*
     public static int[][] populateArray(int[][] array){
 
        for(int row = 0; row<array.length;row++){
@@ -105,6 +113,7 @@ class SearchingForArtifacts {
         return array;
 
     } 
+    */
 
     public static int[] findArtifact(int[][] array){
 
