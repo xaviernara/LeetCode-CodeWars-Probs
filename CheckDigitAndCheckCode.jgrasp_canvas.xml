@@ -18,8 +18,8 @@
       <AutoSize>true</AutoSize>
       <X>420</X>
       <Y>260</Y>
-      <W>118</W>
-      <H>52</H>
+      <W>120</W>
+      <H>54</H>
     </Bounds>
     <Viewer>
       <ScopeID>0</ScopeID>
@@ -30,17 +30,17 @@
   <Frame>
     <Bounds>
       <AutoSize>true</AutoSize>
-      <X>100</X>
-      <Y>70</Y>
-      <W>118</W>
-      <H>54</H>
+      <X>170</X>
+      <Y>360</Y>
+      <W>120</W>
+      <H>56</H>
     </Bounds>
     <LabelLoc>
       <WO>false</WO>
     </LabelLoc>
     <Viewer>
       <ScopeID>0</ScopeID>
-      <Expression>`local int` twoDigitCount</Expression>
+      <Expression>`local int` position</Expression>
       <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
     </Viewer>
   </Frame>
@@ -49,8 +49,8 @@
       <AutoSize>true</AutoSize>
       <X>130</X>
       <Y>210</Y>
-      <W>124</W>
-      <H>54</H>
+      <W>126</W>
+      <H>56</H>
     </Bounds>
     <LabelLoc>
       <WO>false</WO>
@@ -64,24 +64,10 @@
   <Frame>
     <Bounds>
       <AutoSize>true</AutoSize>
-      <X>380</X>
-      <Y>110</Y>
-      <W>209</W>
-      <H>52</H>
-    </Bounds>
-    <Viewer>
-      <ScopeID>0</ScopeID>
-      <Expression>`local java.lang.String` num</Expression>
-      <ViewerClass>jgrasp_viewers.java__lang__String_FormattedView</ViewerClass>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
       <X>590</X>
       <Y>380</Y>
-      <W>118</W>
-      <H>54</H>
+      <W>120</W>
+      <H>56</H>
     </Bounds>
     <LabelLoc>
       <WO>false</WO>
@@ -95,17 +81,31 @@
   <Frame>
     <Bounds>
       <AutoSize>true</AutoSize>
-      <X>170</X>
-      <Y>360</Y>
-      <W>118</W>
+      <X>380</X>
+      <Y>110</Y>
+      <W>211</W>
       <H>54</H>
+    </Bounds>
+    <Viewer>
+      <ScopeID>0</ScopeID>
+      <Expression>`local java.lang.String` num</Expression>
+      <ViewerClass>jgrasp_viewers.java__lang__String_FormattedView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>100</X>
+      <Y>70</Y>
+      <W>120</W>
+      <H>56</H>
     </Bounds>
     <LabelLoc>
       <WO>false</WO>
     </LabelLoc>
     <Viewer>
       <ScopeID>0</ScopeID>
-      <Expression>`local int` position</Expression>
+      <Expression>`local int` twoDigitCount</Expression>
       <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
     </Viewer>
   </Frame>

@@ -105,8 +105,9 @@ public class FrequencySort {
     
         
     }
-    
-       private static String repeatString(Character ch,int count){
+    //This method will add ch to the string based on its frequency in the given string in frequencySort() method
+    //simulates sorting the string by frequency 
+    private static String repeatString(Character ch,int count){
        StringBuilder sb = new StringBuilder();
        for (int i = 0; i < count; i++) {
            sb.append(ch);
@@ -115,7 +116,7 @@ public class FrequencySort {
    }
 }
 
-
+//comparator for sorting map by value
 class SortByValueComparator implements Comparator<Map.Entry<Character,Integer>> {
 
    public int compare(Map.Entry<Character,Integer> e1, Map.Entry<Character,Integer> e2){
@@ -151,7 +152,7 @@ class ValueComparator<Key, Value extends Comparable<Value>> implements Comparato
 	@Override
 	public int compare(Key s1, Key s2) {
 		return -map.get(s1).compareTo(map.get(s2));//descending order
-      //return map.get(s1).compareTo(map.get(s2));//descending order
+      //return map.get(s1).compareTo(map.get(s2));//ascending order
 	
 	}
 }
